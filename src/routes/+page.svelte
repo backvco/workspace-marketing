@@ -3,13 +3,13 @@
 	import Eyebrow from '$lib/components/Eyebrow.svelte';
 	import MockTerminal from '$lib/components/mock/MockTerminal.svelte';
 	import MockAgentBoard from '$lib/components/mock/MockAgentBoard.svelte';
-	import { pillars, tools } from '$lib/data/features.js';
+	import { pillars, tools, compatibleTools } from '$lib/data/features.js';
 	import { ctaPrimary, ctaSecondary } from '$lib/data/site.js';
 </script>
 
 <svelte:head>
-	<title>Workspace — AI development infrastructure you own</title>
-	<meta name="description" content="A self-hosted browser workspace for Claude Code. Persistent terminals, async AI agents, and a kanban board where every ticket becomes a real agent working in its own git branch." />
+	<title>Workspaceai — Your dev environment, from any device</title>
+	<meta name="description" content="A self-hosted browser workspace that keeps your terminals, editors, and projects running — pick up from your iPhone, iPad, or desktop without losing a thing." />
 </svelte:head>
 
 <!-- ───────────────────────── HERO ───────────────────────── -->
@@ -22,17 +22,28 @@
 			<div class="min-w-0">
 				<Eyebrow>Open source · Self-hosted</Eyebrow>
 				<h1 class="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
-					AI development,<br />
-					<span class="bg-gradient-to-r from-ws-300 via-ws-400 to-ws-600 bg-clip-text text-transparent">unleashed.</span>
+					Your work.<br />
+					<span class="bg-gradient-to-r from-ws-300 via-ws-400 to-ws-600 bg-clip-text text-transparent">From any device.</span>
 				</h1>
-				<ul class="mt-8 space-y-2 font-mono text-sm">
-					<li class="text-slate-500">Close the browser.</li>
-					<li class="text-slate-400">The agents keep building.</li>
-					<li class="text-white">From any device.</li>
-				</ul>
+
 				<p class="mt-7 max-w-xl text-lg leading-relaxed text-slate-400">
-					A self-hosted browser workspace for Claude Code. Persistent terminals that survive browser close, an agent kanban where every ticket spawns a real AI agent in its own git branch, and access from desktop, iPhone, or iPad over your private mesh.
+					A self-hosted browser workspace that keeps your terminals, editors, and projects running on your own server — so you can pick up from your iPhone, iPad, or desktop without losing a thing.
 				</p>
+
+				<ul class="mt-6 space-y-2.5">
+					{#each [
+						'Sessions survive browser close — tmux keeps everything alive',
+						'Projects group your work so you always know where you are',
+						'Full VS Code, terminal, git, and plans in one place',
+						'Secure by default — private mesh, no open ports'
+					] as item}
+						<li class="flex items-start gap-3 text-sm text-slate-400">
+							<span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ws-400 shadow-[0_0_6px_currentColor]"></span>
+							{item}
+						</li>
+					{/each}
+				</ul>
+
 				<div class="mt-10 flex flex-col gap-3 sm:flex-row">
 					<a
 						href={ctaPrimary.href}
@@ -48,6 +59,7 @@
 						{ctaSecondary.label}
 					</a>
 				</div>
+
 				<div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-slate-600">
 					<span>MIT License</span><span>·</span>
 					<span>SvelteKit + Node</span><span>·</span>
@@ -57,7 +69,7 @@
 
 			<div class="min-w-0">
 				<MockTerminal />
-				<p class="mt-3 text-center font-mono text-xs text-slate-600">↑ live session — browser closed 4 min ago</p>
+				<p class="mt-3 text-center font-mono text-xs text-slate-600">↑ session running 4h 22m — reconnected from iPhone</p>
 			</div>
 		</div>
 	</Section>
@@ -66,28 +78,44 @@
 <!-- ───────────────────────── PROBLEM ───────────────────────── -->
 <Section cls="border-t border-ink-800 py-28">
 	<div class="mx-auto max-w-3xl text-center">
-		<Eyebrow accent="run">The status quo</Eyebrow>
+		<Eyebrow accent="run">The problem</Eyebrow>
 		<h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
-			Cloud IDEs own your context.<br />SSH on mobile is miserable.
+			You started it on your desk.<br />Now you're stuck there.
 		</h2>
 		<p class="mt-6 text-lg leading-relaxed text-slate-400">
-			Cloud IDEs lock your agents to a browser tab. Close it and the work stops. Your code lives on their servers, billed whether you ship or not, with no path to self-host.
+			A build is running. A long AI session is in progress. A dev server is up. You close the laptop and it's all gone — or you leave the machine running and hope nothing breaks before you get back.
 		</p>
 		<p class="mt-4 text-lg leading-relaxed text-slate-400">
-			Raw SSH from your phone technically works — until you need to review a diff, open a second terminal, or paste a screenshot into a Claude session.
+			You could do this with raw tmux. But keeping track of which session is which, across multiple projects and machines, turns into a mess of cryptic window names and mental overhead you don't need.
 		</p>
 	</div>
+
+	<div class="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-2">
+		<div class="rounded-2xl border border-ink-700 bg-ink-900/50 p-7">
+			<div class="text-sm font-semibold text-slate-300">Raw tmux</div>
+			<p class="mt-3 text-sm leading-relaxed text-slate-500">Works, but session 3 window 2 isn't a project. No grouping, no context, no clean way to see what's running across your work.</p>
+		</div>
+		<div class="rounded-2xl border border-ink-700 bg-ink-900/50 p-7">
+			<div class="text-sm font-semibold text-slate-300">Cloud IDEs</div>
+			<p class="mt-3 text-sm leading-relaxed text-slate-500">Their server, their rules. Your code lives on their infrastructure, with limited terminal access and no path to self-host.</p>
+		</div>
+	</div>
+
+	<p class="mx-auto mt-10 max-w-2xl text-center text-lg leading-relaxed text-slate-400">
+		Workspace is the clean interface over tmux you always wanted —
+		<span class="text-white">with projects, a real editor, and access from any device.</span>
+	</p>
 </Section>
 
 <!-- ───────────────────────── THREE PILLARS ───────────────────────── -->
 <Section cls="border-t border-ink-800 pt-24 pb-4" id="features">
 	<div class="mx-auto mb-16 max-w-2xl text-center">
-		<Eyebrow>How workspace is different</Eyebrow>
+		<Eyebrow>How it works</Eyebrow>
 		<h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
-			Built for the way AI development actually works
+			Built around how you actually work
 		</h2>
 		<p class="mt-5 text-lg leading-relaxed text-slate-400">
-			Agents run for minutes or hours. You switch devices. You lose connectivity. Workspace is designed around all of that.
+			Processes run on your server. You access them through a browser. Switching devices is just opening a tab.
 		</p>
 	</div>
 	<div class="grid gap-6 lg:grid-cols-3">
@@ -105,23 +133,23 @@
 	</div>
 </Section>
 
-<!-- ───────────────────────── AGENT MANAGER DEEP-DIVE ───────────────────────── -->
-<Section cls="pt-28 pb-20" id="agents">
+<!-- ───────────────────────── PROJECTS DEEP-DIVE ───────────────────────── -->
+<Section cls="pt-28 pb-20" id="projects">
 	<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 [&>*]:min-w-0">
 		<div>
-			<Eyebrow>Agent Manager</Eyebrow>
+			<Eyebrow>Projects</Eyebrow>
 			<h2 class="mt-5 text-3xl font-bold tracking-tight text-white">
-				Tickets that build themselves.
+				Everything in one place, organized by project.
 			</h2>
 			<p class="mt-5 leading-relaxed text-slate-400">
-				Chat with Claude to break a feature into tickets. Approve the plan. Each ticket you start spawns a real Claude Code agent in an isolated git worktree on its own branch. Agents plan, execute, and wait for your review — asynchronously, while you work on something else.
+				A project is a directory — a domain of work. Select one and the whole environment switches: terminals, editor, git, plans, and tools all scope to that project. Tabs persist between sessions so you pick up exactly where you left off.
 			</p>
 			<ul class="mt-7 space-y-3">
 				{#each [
-					['Plan', 'Describe a feature — Claude proposes a ticket breakdown'],
-					['Start', 'One click spawns an agent in a fresh git worktree'],
-					['Review', 'Approve the plan, then accept or reject the diff'],
-					['Merge', 'Clean history: one branch per ticket, no collisions']
+					['One project rail', 'Switch projects from the left sidebar — everything follows'],
+					['Persistent tabs', 'Your terminal layout is saved and restored automatically'],
+					['Scoped tools', 'Git, files, MCP tools, and plans all know which project you\'re in'],
+					['Overview dashboard', 'Cross-project status so nothing falls through the cracks']
 				] as [head, body]}
 					<li class="flex gap-3">
 						<span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ws-500/15 text-ws-400">
@@ -142,12 +170,12 @@
 <!-- ───────────────────────── TOOLS GRID ───────────────────────── -->
 <Section cls="border-t border-ink-800 py-24">
 	<div class="max-w-2xl">
-		<Eyebrow>The tab shell</Eyebrow>
+		<Eyebrow>Everything you need</Eyebrow>
 		<h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white">
-			Every tool a developer needs, in one browser tab.
+			A full dev environment in a browser tab.
 		</h2>
 		<p class="mt-5 leading-relaxed text-slate-400">
-			Projects scope everything to a directory. Tabs persist per project. Each tool is isolated, lazy-loaded, and can be extended or replaced.
+			Not a lite version. Full VS Code, real terminals, git, structured planning — and a tool system you can extend with your own MCP servers.
 		</p>
 	</div>
 	<div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -160,6 +188,24 @@
 	</div>
 </Section>
 
+<!-- ───────────────────────── COMPATIBLE TOOLS ───────────────────────── -->
+<Section cls="border-t border-ink-800 py-24">
+	<div class="mx-auto max-w-3xl text-center">
+		<Eyebrow>Works with anything</Eyebrow>
+		<h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
+			Not tied to any tool, model, or vendor.
+		</h2>
+		<p class="mt-5 text-lg leading-relaxed text-slate-400">
+			Workspace is a persistent terminal environment. Whatever you run in a terminal today — you can run here, from any device, without losing state.
+		</p>
+		<div class="mt-10 flex flex-wrap justify-center gap-3">
+			{#each compatibleTools as tool}
+				<span class="rounded-full border border-ink-700 bg-ink-900 px-4 py-1.5 font-mono text-xs text-slate-400">{tool}</span>
+			{/each}
+		</div>
+	</div>
+</Section>
+
 <!-- ───────────────────────── OPEN SOURCE ───────────────────────── -->
 <Section cls="border-t border-ink-800 py-24" id="open-source">
 	<div class="rounded-3xl border border-ink-700 bg-gradient-to-b from-ink-900 to-ink-950 p-8 md:p-14">
@@ -167,16 +213,16 @@
 			<div>
 				<Eyebrow>Open source · MIT</Eyebrow>
 				<h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white">
-					Your infra. Your data. Your agents.
+					Your server. Your data. Your environment.
 				</h2>
 				<p class="mt-5 leading-relaxed text-slate-400">
-					Workspace is MIT-licensed and designed to be self-hosted. Deploy it on your own server, join it to your private network, and know that your code and agent context never leave your infrastructure.
+					Workspace is MIT-licensed and self-hosted. Deploy it on any Linux server, connect through your private NetBird mesh, and know that your code, sessions, and context never leave your infrastructure.
 				</p>
 				<ul class="mt-7 space-y-3">
 					{#each [
-						'No vendor lock-in — fork it, extend it, own it',
 						'Deploy on any Linux box or VM in minutes',
-						'Private mesh via NetBird — no public port required',
+						'Private mesh via NetBird — no open ports, no VPN config',
+						'Fork it, extend it, embed it — it\'s yours',
 						'Embeddable: mount the backend into your own app'
 					] as item}
 						<li class="flex gap-3 text-sm text-slate-400">
@@ -186,18 +232,11 @@
 					{/each}
 				</ul>
 				<div class="mt-8 flex gap-3">
-					<a
-						href={ctaPrimary.href}
-						class="rounded-lg bg-ws-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ws-400"
-					>{ctaPrimary.label}</a>
-					<a
-						href="/docs"
-						class="rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:bg-ink-800"
-					>Deploy guide</a>
+					<a href={ctaPrimary.href} class="rounded-lg bg-ws-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ws-400">{ctaPrimary.label}</a>
+					<a href="/docs" class="rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:bg-ink-800">Deploy guide</a>
 				</div>
 			</div>
 
-			<!-- Code snippet -->
 			<div class="overflow-hidden rounded-2xl border border-ink-700 bg-ink-950">
 				<div class="flex h-9 items-center gap-2 border-b border-ink-700 px-4">
 					<span class="h-2.5 w-2.5 rounded-full bg-ink-700"></span>
@@ -209,10 +248,10 @@
 git clone https://github.com/backv/workspace
 cd workspace && npm install
 
-<span class="text-slate-500"># configure (copy example env)</span>
+<span class="text-slate-500"># configure</span>
 cp .env.example .env
 
-<span class="text-slate-500"># start the server</span>
+<span class="text-slate-500"># start</span>
 node server/index.js
 
 <span class="text-slate-500"># open in browser</span>
@@ -228,20 +267,14 @@ node server/index.js
 		<div class="ws-glow absolute inset-0 opacity-50"></div>
 		<div class="relative">
 			<h2 class="mx-auto max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
-				Start building with agents that never sleep.
+				Stop being tied to one machine.
 			</h2>
 			<p class="mx-auto mt-5 max-w-xl text-slate-400">
-				Open source, self-hosted, and built for the async, multi-device reality of AI-assisted development.
+				Self-hosted, open source, and built for the reality that your best work doesn't happen at a single desk.
 			</p>
 			<div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-				<a
-					href={ctaPrimary.href}
-					class="rounded-lg bg-ws-500 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-ws-400"
-				>{ctaPrimary.label}</a>
-				<a
-					href="/docs"
-					class="rounded-lg border border-ink-600 bg-ink-800/50 px-7 py-3 text-sm font-semibold text-slate-200 transition-colors hover:bg-ink-800"
-				>Read the docs</a>
+				<a href={ctaPrimary.href} class="rounded-lg bg-ws-500 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-ws-400">{ctaPrimary.label}</a>
+				<a href="/docs" class="rounded-lg border border-ink-600 bg-ink-800/50 px-7 py-3 text-sm font-semibold text-slate-200 transition-colors hover:bg-ink-800">Read the docs</a>
 			</div>
 		</div>
 	</div>
