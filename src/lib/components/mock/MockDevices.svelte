@@ -28,14 +28,17 @@
        MacBook — left, dominant
        Screen: 468×300, with sidebar + terminal
   ════════════════════════════════════════════════════════ -->
-  <div class="absolute" style="left: 0; top: 20px;">
+  <div class="absolute" style="left: 0; top: 10px;">
 
     <!-- Screen bezel -->
     <div class="overflow-hidden rounded-xl border border-[#424245] bg-[#1c1c1e] shadow-[0_28px_72px_rgba(0,0,0,0.75)]" style="width:468px;">
 
-      <!-- Camera strip -->
-      <div class="flex h-5 items-center justify-center bg-[#161b22] border-b border-[#30363d]">
-        <div class="h-1.5 w-1.5 rounded-full bg-[#3a3a3c]"></div>
+      <!-- Title bar with traffic lights -->
+      <div class="flex h-8 items-center gap-1.5 bg-[#161b22] border-b border-[#30363d] px-3">
+        <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
+        <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
+        <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
+        <span class="ml-2 text-[9px] text-[#8b949e]">Workspace</span>
       </div>
 
       <!-- App: sidebar + terminal -->
@@ -103,11 +106,6 @@
       </div>
     </div>
 
-    <!-- Keyboard base -->
-    <div class="mx-auto h-3 rounded-b-xl bg-gradient-to-b from-[#c7c7cc] to-[#b0b0b5]" style="width:94%;"></div>
-    <div class="mx-auto h-1.5 rounded-b bg-[#a0a0a5]" style="width:86%;"></div>
-    <!-- Trackpad hint -->
-    <div class="mx-auto mt-0.5 h-0.5 w-16 rounded-full bg-[#b8b8be] opacity-60" style="margin-left:auto;margin-right:auto;display:block;width:64px;"></div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════
