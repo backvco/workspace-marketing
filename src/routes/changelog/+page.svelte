@@ -30,8 +30,14 @@
 </script>
 
 <svelte:head>
-	<title>Changelog — Workspace</title>
-	<meta name="description" content="What's new in Workspace — release notes and updates." />
+	<title>Changelog — Workspace AI</title>
+	<meta name="description" content="What's new in Workspace AI — release notes and version history." />
+	<link rel="canonical" href="https://workspaceai.dev/changelog" />
+	<meta property="og:title" content="Changelog — Workspace AI" />
+	<meta property="og:description" content="What's new in Workspace AI — release notes and version history." />
+	<meta property="og:url" content="https://workspaceai.dev/changelog" />
+	<meta name="twitter:title" content="Changelog — Workspace AI" />
+	<meta name="twitter:description" content="What's new in Workspace AI — release notes and version history." />
 </svelte:head>
 
 <div class="relative overflow-hidden">

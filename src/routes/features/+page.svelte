@@ -122,8 +122,14 @@
 </script>
 
 <svelte:head>
-  <title>Features — Workspace</title>
+  <title>Features — Workspace AI</title>
   <meta name="description" content="Everything you need: persistent terminals, full VS Code, AI-powered planning, MCP tools, and a project system that keeps your context intact across devices." />
+  <link rel="canonical" href="https://workspaceai.dev/features" />
+  <meta property="og:title" content="Features — Workspace AI" />
+  <meta property="og:description" content="Everything you need: persistent terminals, full VS Code, AI-powered planning, MCP tools, and a project system that keeps your context intact across devices." />
+  <meta property="og:url" content="https://workspaceai.dev/features" />
+  <meta name="twitter:title" content="Features — Workspace AI" />
+  <meta name="twitter:description" content="Everything you need: persistent terminals, full VS Code, AI-powered planning, MCP tools, and a project system that keeps your context intact across devices." />
 </svelte:head>
 
 <!-- Hero -->

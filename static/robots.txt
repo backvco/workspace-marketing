@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# LLM training crawlers — welcome, content is open source
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://workspaceai.dev/sitemap.xml

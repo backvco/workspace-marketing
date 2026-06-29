@@ -14,8 +14,14 @@
 </script>
 
 <svelte:head>
-  <title>Documentation — Workspace</title>
-  <meta name="description" content="Get Workspace running on your server in minutes. Self-hosted, open source dev environment accessible from any device." />
+  <title>Documentation — Workspace AI</title>
+  <meta name="description" content="Get Workspace AI running on your server in minutes. Self-hosted, open source dev environment accessible from any device." />
+  <link rel="canonical" href="https://workspaceai.dev/docs" />
+  <meta property="og:title" content="Documentation — Workspace AI" />
+  <meta property="og:description" content="Get Workspace AI running on your server in minutes. Self-hosted, open source dev environment accessible from any device." />
+  <meta property="og:url" content="https://workspaceai.dev/docs" />
+  <meta name="twitter:title" content="Documentation — Workspace AI" />
+  <meta name="twitter:description" content="Get Workspace AI running on your server in minutes. Self-hosted, open source dev environment accessible from any device." />
 </svelte:head>
 
 <Section cls="pt-24 pb-8">
@@ -125,7 +131,10 @@ docker run -d --name workspace-db \
   -e POSTGRES_PASSWORD=yourpassword \
   -p 5432:5432 postgres:16</code></pre>
         </div>
-        <p class="mt-3 leading-relaxed text-slate-400 text-sm">The schema is created automatically on first start — no migrations to run manually.</p>
+        <div class="mt-4 flex gap-3 rounded-xl border border-ws-500/20 bg-ws-500/5 px-4 py-3">
+          <span class="mt-0.5 text-ws-400">ℹ</span>
+          <p class="text-sm leading-relaxed">The database schema is created automatically on first start. No migrations, no <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">CREATE TABLE</code> commands — just point Workspace at an empty database and it sets itself up.</p>
+        </div>
 
         <h3 class="mt-6 text-lg font-semibold text-white">5. Start the server</h3>
         <div class="mt-3 overflow-hidden rounded-xl border border-ink-700 bg-ink-950">

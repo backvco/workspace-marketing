@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="mt-14 flex flex-col gap-3 border-t border-ink-700/60 pt-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-			<span>© {new Date().getFullYear()} Workspace. A Backv Studio company.</span>
+			<span>© {new Date().getFullYear()} Workspace AI. A BACK Ventures studio project.</span>
 			<div class="flex flex-wrap gap-5">
 				<a href="/privacy" class="hover:text-slate-300">Privacy</a>
 				<a href="/terms" class="hover:text-slate-300">Terms</a>

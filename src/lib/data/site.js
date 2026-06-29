@@ -38,7 +38,7 @@ export const footerNav = [
 	{
 		heading: 'Company',
 		links: [
-			{ label: 'Backv Studio', href: 'https://backv.co' },
+			{ label: 'BACK Ventures — Studio Project', href: 'https://backv.co' },
 			{ label: 'Contact', href: 'mailto:info@workspaceai.dev' }
 		]
 	}

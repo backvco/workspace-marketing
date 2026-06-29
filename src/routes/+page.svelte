@@ -9,8 +9,26 @@
 </script>
 
 <svelte:head>
-	<title>Workspaceai — Your dev environment, from any device</title>
+	<title>Workspace AI — Your dev environment, from any device</title>
 	<meta name="description" content="A self-hosted browser workspace that keeps your terminals, editors, and projects running — pick up from your iPhone, iPad, or desktop without losing a thing." />
+	<link rel="canonical" href="https://workspaceai.dev/" />
+	<meta property="og:title" content="Workspace AI — Your dev environment, from any device" />
+	<meta property="og:description" content="A self-hosted browser workspace that keeps your terminals, editors, and projects running — pick up from your iPhone, iPad, or desktop without losing a thing." />
+	<meta property="og:url" content="https://workspaceai.dev/" />
+	<meta name="twitter:title" content="Workspace AI — Your dev environment, from any device" />
+	<meta name="twitter:description" content="A self-hosted browser workspace that keeps your terminals, editors, and projects running — pick up from your iPhone, iPad, or desktop without losing a thing." />
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		"name": "Workspace AI",
+		"applicationCategory": "DeveloperApplication",
+		"operatingSystem": "Linux",
+		"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+		"description": "A self-hosted browser workspace that keeps your terminals, editors, and AI agents running so you can pick up your work from any device — iPhone, iPad, or desktop.",
+		"url": "https://workspaceai.dev",
+		"codeRepository": "https://github.com/backv/workspace",
+		"license": "https://opensource.org/licenses/MIT"
+	})}</script>`}
 </svelte:head>
 
 <!-- ───────────────────────── HERO ───────────────────────── -->
