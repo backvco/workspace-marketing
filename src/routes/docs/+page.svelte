@@ -141,27 +141,26 @@ pm2 save && pm2 startup</code></pre>
       <!-- Configuration -->
       <section id="configuration">
         <h2 class="text-2xl font-bold text-white">Configuration</h2>
-        <p class="mt-3 leading-relaxed">All configuration is done through the <code class="rounded bg-ink-800 px-1.5 py-0.5 text-xs text-slate-300">.env</code> file. Copy the example and edit it.</p>
+        <p class="mt-3 leading-relaxed">All configuration is done through environment variables. Workspace has no built-in username/password — access is controlled at the network level by your private mesh or firewall. If the server is reachable, you're in.</p>
         <div class="mt-5 overflow-hidden rounded-xl border border-ink-700 bg-ink-950">
           <div class="flex h-9 items-center gap-2 border-b border-ink-700 px-4">
             <span class="font-mono text-xs text-slate-600">.env</span>
           </div>
           <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500"># Server</span>
-PORT=5300
-HOST=0.0.0.0
+WORKSPACE_HOST=127.0.0.1
+WORKSPACE_PORT=5301
 
 <span class="text-slate-500"># Postgres — required</span>
 WORKSPACE_DATABASE_URL=postgresql://user:password@localhost:5432/workspace
 
-<span class="text-slate-500"># Auth — set a strong secret</span>
-SESSION_SECRET=change-me-to-something-random
+<span class="text-slate-500"># Where your project directories live</span>
+WORKSPACE_PROJECT_ROOTS=/home/user/projects
 
-<span class="text-slate-500"># Projects root — where your project directories live</span>
-PROJECTS_ROOT=/home/ubuntu/projects
+<span class="text-slate-500"># Where terminals open by default</span>
+WORKSPACE_TERM_CWD=/home/user
 
-<span class="text-slate-500"># Optional: restrict to a single user</span>
-AUTH_USER=admin
-AUTH_PASS=change-me</code></pre>
+<span class="text-slate-500"># Data dir for tab state and clipboard images</span>
+WORKSPACE_DATA_DIR=/home/user/.workspace/data</code></pre>
         </div>
       </section>
 
