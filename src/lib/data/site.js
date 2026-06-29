@@ -6,8 +6,11 @@ export const site = {
 		'A self-hosted browser workspace that keeps your terminals, editors, and projects running — so you can pick up from your iPhone, iPad, or desktop without losing a thing.'
 };
 
-export const ctaPrimary = { label: 'View on GitHub', href: 'https://github.com/cameronjweeks/workspace-marketing', external: true };
+export const ctaPrimary = { label: 'View on GitHub', href: 'https://github.com/backvco/workspace', external: true };
 export const ctaSecondary = { label: 'Read the docs', href: '/docs' };
+
+// The one-line installer shown in the hero "Try it" box.
+export const installCommand = 'curl -fsSL https://raw.githubusercontent.com/backvco/workspace/master/install.sh | bash';
 
 export const nav = [
 	{ label: 'Features', href: '/#features' },
@@ -29,7 +32,7 @@ export const footerNav = [
 	{
 		heading: 'Resources',
 		links: [
-			{ label: 'GitHub', href: 'https://github.com/cameronjweeks/workspace-marketing' },
+			{ label: 'GitHub', href: 'https://github.com/backvco/workspace' },
 			{ label: 'Changelog', href: '/changelog' },
 			{ label: 'Privacy', href: '/privacy' },
 			{ label: 'Terms', href: '/terms' }

@@ -5,7 +5,15 @@
 	import MockAgentBoard from '$lib/components/mock/MockAgentBoard.svelte';
 	import MockVSCode from '$lib/components/mock/MockVSCode.svelte';
 	import { pillars, tools, compatibleTools } from '$lib/data/features.js';
-	import { ctaPrimary, ctaSecondary } from '$lib/data/site.js';
+	import { ctaPrimary, ctaSecondary, installCommand } from '$lib/data/site.js';
+
+	let copied = $state(false);
+	function copyInstall() {
+		navigator.clipboard?.writeText(installCommand).then(() => {
+			copied = true;
+			setTimeout(() => (copied = false), 2000);
+		}).catch(() => {});
+	}
 </script>
 
 <svelte:head>
@@ -77,6 +85,20 @@
 					>
 						{ctaSecondary.label}
 					</a>
+				</div>
+
+				<!-- Try it: copyable one-line installer -->
+				<div class="mt-6 max-w-xl">
+					<div class="mb-2 font-mono text-xs font-semibold uppercase tracking-wide text-slate-500">Try it</div>
+					<button
+						onclick={copyInstall}
+						title="Copy to clipboard"
+						class="group flex w-full items-center gap-3 rounded-lg border border-ink-700 bg-ink-950 px-4 py-3 text-left font-mono text-xs text-slate-300 transition-colors hover:border-ink-600"
+					>
+						<span class="select-none text-ws-400">$</span>
+						<span class="flex-1 overflow-x-auto whitespace-nowrap">{installCommand}</span>
+						<span class="shrink-0 font-sans text-xs font-medium {copied ? 'text-ws-400' : 'text-slate-500 group-hover:text-slate-300'}">{copied ? 'Copied!' : 'Copy'}</span>
+					</button>
 				</div>
 
 				<div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-slate-600">
