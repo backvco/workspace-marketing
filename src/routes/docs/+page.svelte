@@ -74,6 +74,7 @@ node server/index.js
         <ul class="mt-4 space-y-2">
           {#each [
             ['Node.js 20+', 'The server is plain Node — no containerization required'],
+            ['Postgres 14+', 'Stores projects, tabs, agents, and events — a local instance or managed DB both work'],
             ['tmux', 'Used for persistent terminal sessions (`apt install tmux`)'],
             ['Linux', 'Any distro — Ubuntu 22.04+ recommended'],
             ['A domain or local network access', 'Accessed via browser, so you need to be able to reach the server'],
@@ -112,7 +113,21 @@ sudo apt install tmux
 sudo pacman -S tmux</code></pre>
         </div>
 
-        <h3 class="mt-6 text-lg font-semibold text-white">4. Start the server</h3>
+        <h3 class="mt-6 text-lg font-semibold text-white">4. Set up Postgres</h3>
+        <p class="mt-2 leading-relaxed">Workspace stores projects, tabs, agents, and events in a Postgres database. You'll need a running Postgres instance and a dedicated database.</p>
+        <div class="mt-3 overflow-hidden rounded-xl border border-ink-700 bg-ink-950">
+          <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500"># Create the database (run as the postgres user)</span>
+createdb workspace
+
+<span class="text-slate-500"># Or using Docker</span>
+docker run -d --name workspace-db \
+  -e POSTGRES_DB=workspace \
+  -e POSTGRES_PASSWORD=yourpassword \
+  -p 5432:5432 postgres:16</code></pre>
+        </div>
+        <p class="mt-3 leading-relaxed text-slate-400 text-sm">The schema is created automatically on first start — no migrations to run manually.</p>
+
+        <h3 class="mt-6 text-lg font-semibold text-white">5. Start the server</h3>
         <div class="mt-3 overflow-hidden rounded-xl border border-ink-700 bg-ink-950">
           <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code>node server/index.js
 
@@ -134,6 +149,9 @@ pm2 save && pm2 startup</code></pre>
           <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500"># Server</span>
 PORT=5300
 HOST=0.0.0.0
+
+<span class="text-slate-500"># Postgres — required</span>
+WORKSPACE_DATABASE_URL=postgresql://user:password@localhost:5432/workspace
 
 <span class="text-slate-500"># Auth — set a strong secret</span>
 SESSION_SECRET=change-me-to-something-random

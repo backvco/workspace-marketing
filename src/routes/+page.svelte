@@ -282,10 +282,10 @@
 git clone https://github.com/backv/workspace
 cd workspace && npm install
 
-<span class="text-slate-500"># configure</span>
+<span class="text-slate-500"># configure (set WORKSPACE_DATABASE_URL in .env)</span>
 cp .env.example .env
 
-<span class="text-slate-500"># start</span>
+<span class="text-slate-500"># start (schema is created automatically)</span>
 node server/index.js
 
 <span class="text-slate-500"># open in browser</span>
