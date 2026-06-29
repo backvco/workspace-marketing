@@ -87,20 +87,6 @@
 					</a>
 				</div>
 
-				<!-- Try it: copyable one-line installer -->
-				<div class="mt-6 max-w-xl">
-					<div class="mb-2 font-mono text-xs font-semibold uppercase tracking-wide text-slate-500">Try it</div>
-					<button
-						onclick={copyInstall}
-						title="Copy to clipboard"
-						class="group flex w-full items-center gap-3 rounded-lg border border-ink-700 bg-ink-950 px-4 py-3 text-left font-mono text-xs text-slate-300 transition-colors hover:border-ink-600"
-					>
-						<span class="select-none text-ws-400">$</span>
-						<span class="flex-1 overflow-x-auto whitespace-nowrap">{installCommand}</span>
-						<span class="shrink-0 font-sans text-xs font-medium {copied ? 'text-ws-400' : 'text-slate-500 group-hover:text-slate-300'}">{copied ? 'Copied!' : 'Copy'}</span>
-					</button>
-				</div>
-
 				<div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-slate-600">
 					<span>MIT License</span><span>·</span>
 					<span>SvelteKit + Node</span><span>·</span>
@@ -116,6 +102,22 @@
 			</div>
 		</div>
 	</Section>
+</div>
+
+<!-- ───────────────────────── TRY IT ───────────────────────── -->
+<div class="border-t border-ink-800 bg-ink-900/40 py-10">
+	<div class="mx-auto max-w-2xl px-6 text-center">
+		<div class="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-slate-500">Try it</div>
+		<button
+			onclick={copyInstall}
+			title="Copy to clipboard"
+			class="group mx-auto flex w-full max-w-xl items-center gap-3 rounded-lg border border-ink-700 bg-ink-950 px-4 py-3 text-left font-mono text-sm text-slate-300 transition-colors hover:border-ink-600"
+		>
+			<span class="select-none text-ws-400">$</span>
+			<span class="flex-1 overflow-x-auto whitespace-nowrap">{installCommand}</span>
+			<span class="shrink-0 font-sans text-xs font-medium {copied ? 'text-ws-400' : 'text-slate-500 group-hover:text-slate-300'}">{copied ? 'Copied!' : 'Copy'}</span>
+		</button>
+	</div>
 </div>
 
 <!-- ───────────────────────── PROBLEM ───────────────────────── -->
