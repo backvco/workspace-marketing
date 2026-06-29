@@ -42,7 +42,7 @@
 			<div class="flex flex-wrap gap-5">
 				<a href="/privacy" class="hover:text-slate-300">Privacy</a>
 				<a href="/terms" class="hover:text-slate-300">Terms</a>
-				<a href="https://github.com/backv/workspace" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300">GitHub</a>
+				<a href="https://github.com/backvco/workspace" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300">GitHub</a>
 			</div>
 		</div>
 	</div>

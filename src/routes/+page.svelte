@@ -26,7 +26,7 @@
 		"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
 		"description": "A self-hosted browser workspace that keeps your terminals, editors, and AI agents running so you can pick up your work from any device — iPhone, iPad, or desktop.",
 		"url": "https://workspaceai.dev",
-		"codeRepository": "https://github.com/backv/workspace",
+		"codeRepository": "https://github.com/backvco/workspace",
 		"license": "https://opensource.org/licenses/MIT"
 	})}</script>`}
 </svelte:head>
@@ -296,15 +296,12 @@
 					<span class="h-2.5 w-2.5 rounded-full bg-ink-700"></span>
 					<span class="ml-2 font-mono text-xs text-slate-600">quick start</span>
 				</div>
-				<pre class="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-slate-300"><code><span class="text-slate-500"># clone and install</span>
-git clone https://github.com/backv/workspace
-cd workspace && npm install
+				<pre class="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-slate-300"><code><span class="text-slate-500"># one-line install — deps, Postgres, config, prompts</span>
+curl -fsSL https://raw.githubusercontent.com/backvco/workspace/master/install.sh | bash
 
-<span class="text-slate-500"># configure — set WORKSPACE_DATABASE_URL at minimum</span>
-cp .env.example .env
-
-<span class="text-slate-500"># start (schema is created automatically)</span>
-node server/index.js
+<span class="text-slate-500"># then start it (two terminals)</span>
+node server/index.js   <span class="text-slate-500"># API :5301</span>
+npm run dev            <span class="text-slate-500"># UI :5300</span>
 
 <span class="text-slate-500"># open in browser</span>
 <span class="text-ws-400">http://localhost:5300</span></code></pre>
