@@ -130,7 +130,7 @@ docker run -d --name workspace-db \
   -v workspace-db-data:/var/lib/postgresql/data postgres:16</code></pre>
         </div>
         <div class="mt-4 flex gap-3 rounded-xl border border-ws-500/20 bg-ws-500/5 px-4 py-3">
-          <span class="mt-0.5 text-ws-400">ℹ</span>
+          <span class="mt-0.5 text-ws-400 font-semibold uppercase tracking-wide text-xs">Note</span>
           <p class="text-sm leading-relaxed">The database schema is created automatically on first start. No migrations, no <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">CREATE TABLE</code> commands — just point Workspace at an empty database and it sets itself up.</p>
         </div>
 
@@ -144,7 +144,7 @@ node server/index.js
 npm run dev</code></pre>
         </div>
         <div class="mt-4 flex gap-3 rounded-xl border border-ws-500/20 bg-ws-500/5 px-4 py-3">
-          <span class="mt-0.5 text-ws-400">ℹ</span>
+          <span class="mt-0.5 text-ws-400 font-semibold uppercase tracking-wide text-xs">Note</span>
           <p class="text-sm leading-relaxed">For a permanent deployment, build the UI (<code class="rounded bg-ink-800 px-1 py-0.5 text-xs">npm run build</code> → <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">node build</code>) behind a reverse proxy, and use <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">bin/setup-tls</code> (Caddy + Let's Encrypt) and <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">bin/setup-service</code> (systemd) — the installer offers both.</p>
         </div>
       </section>
@@ -189,7 +189,7 @@ VITE_CODE_SERVER_URL=</code></pre>
         <h2 class="text-2xl font-bold text-white">Connecting from other devices</h2>
         <p class="mt-3 leading-relaxed">Once the server is running, you can reach it from any device on the same network at <code class="rounded bg-ink-800 px-1.5 py-0.5 text-xs text-slate-300">http://&lt;server-ip&gt;:5300</code>.</p>
         <div class="mt-4 flex gap-3 rounded-xl border border-amber-500/20 bg-amber-500/5 px-4 py-3">
-          <span class="mt-0.5 text-amber-400">⚠</span>
+          <span class="mt-0.5 text-amber-400 font-semibold uppercase tracking-wide text-xs">Note</span>
           <p class="text-sm leading-relaxed"><strong class="text-slate-300">HTTPS is required for anything other than localhost.</strong> Image paste, clipboard sync, and installing the app to your home screen (PWA) only work in a browser secure context — that's HTTPS, or <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">http://localhost</code>. Use a mesh tunnel that provides TLS (e.g. <code class="rounded bg-ink-800 px-1 py-0.5 text-xs">tailscale serve</code>) or a reverse proxy that terminates HTTPS.</p>
         </div>
 
