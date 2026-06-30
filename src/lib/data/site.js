@@ -10,7 +10,7 @@ export const ctaPrimary = { label: 'View on GitHub', href: 'https://github.com/b
 export const ctaSecondary = { label: 'Read the docs', href: '/docs' };
 
 // The one-line installer shown in the hero "Try it" box.
-export const installCommand = 'curl -fsSL https://raw.githubusercontent.com/backvco/workspace/master/install.sh | bash';
+export const installCommand = 'curl -fsSL https://workspaceai.dev/install.sh | bash';
 
 export const nav = [
 	{ label: 'Features', href: '/#features' },

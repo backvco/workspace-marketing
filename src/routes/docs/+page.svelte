@@ -59,7 +59,7 @@
             <span class="ml-2 font-mono text-xs text-slate-600">terminal</span>
           </div>
           <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500"># One-line install — only needs curl + sudo</span>
-curl -fsSL https://raw.githubusercontent.com/backvco/workspace/master/install.sh | bash
+curl -fsSL https://workspaceai.dev/install.sh | bash
 
 <span class="text-slate-500"># …then start it in two terminals:</span>
 node server/index.js   <span class="text-slate-500"># API on :5301</span>
